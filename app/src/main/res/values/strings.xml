@@ -6,4 +6,8 @@
     <string name="_120_cm">120 cm</string>
     <string name="weight">Peso</string>
     <string name="age">Edad</string>
+    <string name="calculateImc">Calcular IMC</string>
+    <string name="resoultImc">Tu resultado</string>
+    <string name="Recalcular">Recalcular IMC</string>
+    <string name="error">Error</string>
 </resources>
