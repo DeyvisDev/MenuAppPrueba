@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="16dp"
     android:paddingVertical="32dp"
+    android:background="@color/background_app"
     tools:context=".IMCCalculator.ImcCalculatorActivity">
 
     <androidx.cardview.widget.CardView
@@ -17,20 +18,27 @@
         app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toStartOf="@+id/viewFemale"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Hombre"
-                android:textColor="@color/white"
-                >
+            android:orientation="vertical"
+            android:gravity="center">
 
-            </TextView>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_male"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/male"
+                android:textAllCaps="true"
+                android:textColor="@color/title_text" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.cardview.widget.CardView>
 
@@ -42,8 +50,26 @@
         app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/viewMale"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_female"
+                app:tint="@color/white"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textAllCaps="true"
+                android:text="@string/female"
+                android:textColor="@color/title_text"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.cardview.widget.CardView>
 
