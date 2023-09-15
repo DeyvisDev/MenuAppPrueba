@@ -22,4 +22,7 @@
 
     <string name="title_obecidad">Obecidad</string>
     <string name="description_obecidad">Estas muy por encima de lo optimo para tu peso y altura</string>
+
+    <string name="bienvenido_todo_app">Bienvenido DeyvisDev</string>
+    <string name="todo_categories">Categorias:</string>
 </resources>
