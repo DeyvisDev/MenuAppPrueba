@@ -19,5 +19,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="IMC App" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnGotReciclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recycler" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnTodoApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Todo" />
 
 </LinearLayout>
