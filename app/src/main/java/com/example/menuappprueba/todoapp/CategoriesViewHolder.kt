@@ -2,6 +2,7 @@ package com.example.menuappprueba.todoapp
 
 import android.view.View
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.menuappprueba.R
 
@@ -13,10 +14,30 @@ class CategoriesViewHolder(view: View):RecyclerView.ViewHolder(view) {
         tvCategoryName.text = "Ejemplo"
         when(taskCategory){
             TaskCategory.Business -> {
-                tvCategoryName.text = "Negoco"
+                tvCategoryName.text = "Negocios"
+                vDivider.setBackgroundColor(
+                    ContextCompat.getColor(vDivider.context,R.color.todo_business_category)
+                )
+
             }
-            TaskCategory.Other -> TODO()
-            TaskCategory.Personal -> TODO()
+            TaskCategory.Other -> {
+                tvCategoryName.text = "Otros"
+                vDivider.setBackgroundColor(
+                    ContextCompat.getColor(vDivider.context,R.color.todo_other_category)
+                )
+            }
+            TaskCategory.Personal -> {
+                tvCategoryName.text = "Personal"
+                vDivider.setBackgroundColor(
+                    ContextCompat.getColor(vDivider.context,R.color.todo_personal_category)
+                )
+            }
+            TaskCategory.Pruebas -> {
+                tvCategoryName.text = "Pruebas"
+                vDivider.setBackgroundColor(
+                    ContextCompat.getColor(vDivider.context,R.color.todo_background_disabled)
+                )
+            }
         }
     }
 
