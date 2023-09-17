@@ -1,4 +1,8 @@
 package com.example.menuappprueba.todoapp
 
-class CategoriesViewHolder {
+import android.view.View
+import androidx.recyclerview.widget.RecyclerView
+
+class CategoriesViewHolder(view: View):RecyclerView.ViewHolder(view) {
+
 }
