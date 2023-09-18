@@ -23,9 +23,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:text="@string/todo_categories"
-        android:textStyle=""
-        android:textColor="@color/todo_subtitle_text"
-        android:textAllCaps="true"
+        style="@style/TodoSubtitle"
         android:layout_marginHorizontal="32dp"
         />
     <androidx.recyclerview.widget.RecyclerView
@@ -38,9 +36,7 @@
         android:textSize="20sp"
         android:text="@string/todo_tasks"
         android:layout_marginTop="32dp"
-        android:textStyle=""
-        android:textColor="@color/todo_subtitle_text"
-        android:textAllCaps="true"
+        style="@style/TodoSubtitle"
         android:layout_marginHorizontal="32dp"
         />
 
