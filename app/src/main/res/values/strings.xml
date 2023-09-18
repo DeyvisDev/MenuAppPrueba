@@ -25,4 +25,5 @@
 
     <string name="bienvenido_todo_app">Bienvenido DeyvisDev</string>
     <string name="todo_categories">Categorias:</string>
+    <string name="todo_tasks">Tareas:</string>
 </resources>

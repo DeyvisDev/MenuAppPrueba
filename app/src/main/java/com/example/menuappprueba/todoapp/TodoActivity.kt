@@ -12,7 +12,8 @@ class TodoActivity : AppCompatActivity() {
     private val categries = listOf(
         TaskCategory.Other,
         TaskCategory.Personal,
-        TaskCategory.Business
+        TaskCategory.Business,
+        TaskCategory.Pruebas
     )
 
     private lateinit var rvCategories:RecyclerView
