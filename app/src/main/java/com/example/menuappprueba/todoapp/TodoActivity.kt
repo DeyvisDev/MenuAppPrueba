@@ -14,7 +14,6 @@ import com.example.menuappprueba.Recycler.RecyclerActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class TodoActivity : AppCompatActivity() {
-
     private val categries = listOf(
         TaskCategory.Other,
         TaskCategory.Personal,
@@ -27,13 +26,11 @@ class TodoActivity : AppCompatActivity() {
         Task("PruebaOther", TaskCategory.Other),
         Task("PruebaPruebas", TaskCategory.Pruebas)
     )
-
     private lateinit var rvCategories:RecyclerView
     private lateinit var categoriesAdapter: CategoriesAdapter
 
     private lateinit var rvTasks:RecyclerView
     private lateinit var tasksAdapter: TasksAdapter
-
     private lateinit var fabAddTask:FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +40,6 @@ class TodoActivity : AppCompatActivity() {
         initUI()
         initListeners()
     }
-
     private fun initListeners() {
         fabAddTask.setOnClickListener{
             showDialog()
@@ -55,20 +51,25 @@ class TodoActivity : AppCompatActivity() {
         val btnAddTask:Button = dialog.findViewById(R.id.btnAddTask)
         val etTask:EditText = dialog.findViewById(R.id.etTask)
         val rgCategories:RadioGroup = dialog.findViewById(R.id.rgCategories)
+
         btnAddTask.setOnClickListener {
-            val selectedId = rgCategories.checkedRadioButtonId
-            val selectedRadioButton:RadioButton = rgCategories.findViewById(selectedId)
-            val currentCategory:TaskCategory = when(selectedRadioButton.text){
-                "Negocios" -> TaskCategory.Business
-                "Personal" -> TaskCategory.Personal
-                else -> TaskCategory.Other
+            val currentTask = etTask.text.toString()
+            if (currentTask.isNotEmpty()){
+                val selectedId = rgCategories.checkedRadioButtonId
+                val selectedRadioButton:RadioButton = rgCategories.findViewById(selectedId)
+                val currentCategory:TaskCategory = when(selectedRadioButton.text){
+                    getString(R.string.rvBusiness) -> TaskCategory.Business
+                    getString(R.string.rb_personal) -> TaskCategory.Personal
+                    else -> TaskCategory.Other
+                }
+                tasks.add(Task(currentTask,currentCategory))
+                updateTask()
+                dialog.hide()
             }
-            tasks.add(Task(etTask.text.toString(),currentCategory))
-            dialog.hide()
+
         }
         dialog.show()
     }
-
     private fun initComponent() {
         rvCategories = findViewById(R.id.rvCategories)
         rvTasks = findViewById(R.id.rvTasks)
@@ -82,5 +83,9 @@ class TodoActivity : AppCompatActivity() {
         tasksAdapter = TasksAdapter(tasks)
         rvTasks.layoutManager = LinearLayoutManager(this)
         rvTasks.adapter = tasksAdapter
+    }
+    private fun updateTask(){
+
+        tasksAdapter.notifyDataSetChanged()
     }
 }
