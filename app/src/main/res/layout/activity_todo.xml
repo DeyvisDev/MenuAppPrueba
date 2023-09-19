@@ -50,18 +50,18 @@
             android:layout_marginTop="16dp"
             android:id="@+id/rvTasks"/>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/fabAddTask"
-            android:layout_margin="32dp"
-            app:tint="@color/white"
-            app:backgroundTint="@color/todo_accent"
-            app:fabSize="normal"
-            android:src="@android:drawable/ic_input_add"
 
-
-            />
 
     </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fabAddTask"
+        android:layout_margin="32dp"
+        app:tint="@color/white"
+        app:backgroundTint="@color/todo_accent"
+        app:fabSize="normal"
+        android:layout_gravity="end|bottom"
+        android:src="@android:drawable/ic_input_add"
+        />
 </FrameLayout>
