@@ -46,7 +46,9 @@ class TodoActivity : AppCompatActivity() {
         }
     }
     private fun showDialog(){
-        val dialon = Dialog(this)
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.dialog_task)
+        dialog.show()
     }
 
     private fun initComponent() {

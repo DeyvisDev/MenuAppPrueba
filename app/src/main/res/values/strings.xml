@@ -30,4 +30,5 @@
     <string name="rvBusiness">Negocios</string>
     <string name="rb_personal">Personal</string>
     <string name="rb_otros">Otros</string>
+    <string name="create_task">Crear Tarea</string>
 </resources>
