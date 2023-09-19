@@ -26,4 +26,8 @@
     <string name="bienvenido_todo_app">Bienvenido DeyvisDev</string>
     <string name="todo_categories">Categorias:</string>
     <string name="todo_tasks">Tareas:</string>
+    <string name="add_task">Añade la tarea</string>
+    <string name="rvBusiness">Negocios</string>
+    <string name="rb_personal">Personal</string>
+    <string name="rb_otros">Otros</string>
 </resources>
