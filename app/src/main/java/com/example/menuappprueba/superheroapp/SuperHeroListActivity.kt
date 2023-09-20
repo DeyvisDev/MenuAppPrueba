@@ -2,11 +2,17 @@ package com.example.menuappprueba.superheroapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.widget.SearchView
 import com.example.menuappprueba.R
 import com.example.menuappprueba.databinding.ActivitySuperHeroListBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 
 class SuperHeroListActivity : AppCompatActivity() {
 
@@ -36,13 +42,20 @@ class SuperHeroListActivity : AppCompatActivity() {
     }
 
     private fun searchByName(query: String) {
-
+        CoroutineScope(Dispatchers.IO).launch { 
+            val myResponse: Response<SuperHeroDataResponse> = retrofit.create(ApiService::class.java).getSuperheroes(query)
+            if (myResponse.isSuccessful){
+                Log.i("deyvisdev","Funcionnaaaa ;)")
+            }else{
+                Log.i("deyvisdev","No Funcionnaaaa ;(")
+            }
+        }
 
     }
     private fun getRetrofit():Retrofit{
         return Retrofit
             .Builder()
-            .baseUrl("https://superheroapi.com/api/")
+            .baseUrl("https://superheroapi.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
