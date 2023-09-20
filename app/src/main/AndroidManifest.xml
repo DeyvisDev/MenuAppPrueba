@@ -13,9 +13,16 @@
         android:theme="@style/Theme.MenuAppPrueba"
         tools:targetApi="31">
         <activity
-            android:name=".todoapp.TodoActivity"
-            android:theme="@style/Theme.TODOApp"
+            android:name=".superheroapp.SuperHeroListActivity"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".todoapp.TodoActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TODOApp">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

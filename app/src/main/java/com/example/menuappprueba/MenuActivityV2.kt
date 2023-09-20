@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.widget.AppCompatButton
 import com.example.menuappprueba.IMCCalculator.ImcCalculatorActivity
 import com.example.menuappprueba.Recycler.RecyclerActivity
+import com.example.menuappprueba.superheroapp.SuperHeroListActivity
 import com.example.menuappprueba.todoapp.TodoActivity
 
 class MenuActivityV2 : AppCompatActivity() {
@@ -32,6 +33,15 @@ class MenuActivityV2 : AppCompatActivity() {
         btnTodoApp.setOnClickListener{
             navidatebtnTodoApp()
         }
+        val btnSuperHeroApp = findViewById<AppCompatButton>(R.id.btnSuperHeroApp)
+        btnSuperHeroApp.setOnClickListener{
+            navidatebtnSuperHeroApp()
+        }
+    }
+
+    private fun navidatebtnSuperHeroApp() {
+        val intent = Intent(this,SuperHeroListActivity::class.java)
+        startActivity(intent)
     }
 
     private fun navidatebtnTodoApp() {
