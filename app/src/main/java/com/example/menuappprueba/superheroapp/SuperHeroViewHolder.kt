@@ -8,5 +8,6 @@ class SuperHeroViewHolder(view: View):RecyclerView.ViewHolder(view) {
     private val binding = ItemSuperheroBinding.bind(view)
     fun bind(superheroItemResponse: SuperheroItemResponse){
         binding.tvDuperheroName.text = superheroItemResponse.name
+        binding.ivSuperhero
     }
 }

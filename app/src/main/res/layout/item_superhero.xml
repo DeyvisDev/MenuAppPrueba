@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_gravity="bottom"
-            android:background="@color/teal_200"
+            android:background="@color/superhero_item_name"
             >
             <TextView
                 android:id="@+id/tvDuperheroName"
