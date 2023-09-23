@@ -16,5 +16,10 @@ class SuperHeroAdapter (var superheroList:List<SuperheroItemResponse> = emptyLis
         return SuperHeroViewHolder(layoutInflater.inflate(R.layout.item_superhero,parent,false))
     }
 
+    override fun onBindViewHolder(holder: SuperHeroViewHolder, position: Int) {
+        val item = superheroList[position]
+        holder.bind(item)
+    }
+
     override fun getItemCount()=superheroList.size
 }
