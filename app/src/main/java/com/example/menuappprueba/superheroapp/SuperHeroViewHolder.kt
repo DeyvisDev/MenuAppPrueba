@@ -7,7 +7,7 @@ import com.squareup.picasso.Picasso
 
 class SuperHeroViewHolder(view: View):RecyclerView.ViewHolder(view) {
     private val binding = ItemSuperheroBinding.bind(view)
-    fun bind(superheroItemResponse: SuperheroItemResponse){
+    fun bind(superheroItemResponse: SuperheroItemResponse, onItemSelected: (String) -> Unit){
         binding.tvDuperheroName.text = superheroItemResponse.name
 
 
