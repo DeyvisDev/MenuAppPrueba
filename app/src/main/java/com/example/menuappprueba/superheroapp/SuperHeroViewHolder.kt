@@ -12,5 +12,9 @@ class SuperHeroViewHolder(view: View):RecyclerView.ViewHolder(view) {
 
 
         Picasso.get().load(superheroItemResponse.SuperherImage.url).into(binding.ivSuperhero)
+
+        binding.root.setOnClickListener{
+            onItemSelected(superheroItemResponse.superheroId)
+        }
     }
 }
