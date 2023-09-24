@@ -11,6 +11,12 @@ class DetailSuperHeroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_super_hero)
-        //intent.extras.getString(EXTRA_ID)
+        val id:String = intent.getStringExtra(EXTRA_ID).orEmpty()
+        
+        getSuperHeroInformation(id)
+    }
+
+    private fun getSuperHeroInformation(id: String) {
+
     }
 }
