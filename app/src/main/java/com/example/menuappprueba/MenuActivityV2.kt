@@ -6,10 +6,12 @@ import android.os.Bundle
 import androidx.appcompat.widget.AppCompatButton
 import com.example.menuappprueba.IMCCalculator.ImcCalculatorActivity
 import com.example.menuappprueba.Recycler.RecyclerActivity
+import com.example.menuappprueba.settings.SettingsActivity
 import com.example.menuappprueba.superheroapp.SuperHeroListActivity
 import com.example.menuappprueba.todoapp.TodoActivity
 
 class MenuActivityV2 : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_v2)
@@ -37,6 +39,15 @@ class MenuActivityV2 : AppCompatActivity() {
         btnSuperHeroApp.setOnClickListener{
             navidatebtnSuperHeroApp()
         }
+        val btnSettings = findViewById<AppCompatButton>(R.id.btnSettings)
+        btnSettings.setOnClickListener{
+            navidatebtnSettings()
+        }
+    }
+
+    private fun navidatebtnSettings() {
+        val intent = Intent(this,SettingsActivity::class.java)
+        startActivity(intent)
     }
 
     private fun navidatebtnSuperHeroApp() {
