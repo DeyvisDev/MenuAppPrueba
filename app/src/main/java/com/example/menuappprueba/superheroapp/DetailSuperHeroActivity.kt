@@ -1,10 +1,12 @@
 package com.example.menuappprueba.superheroapp
 
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.core.view.isVisible
 import com.example.menuappprueba.R
+import com.example.menuappprueba.databinding.ActivityDetailSuperHeroBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -16,9 +18,11 @@ class DetailSuperHeroActivity : AppCompatActivity() {
     companion object{
         const val EXTRA_ID = "extra_id"
     }
+    private lateinit var binding:ActivityDetailSuperHeroBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail_super_hero)
+        binding = ActivityDetailSuperHeroBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         val id:String = intent.getStringExtra(EXTRA_ID).orEmpty()
         
         getSuperHeroInformation(id)
@@ -27,9 +31,18 @@ class DetailSuperHeroActivity : AppCompatActivity() {
     private fun getSuperHeroInformation(id: String) {
 
         CoroutineScope(Dispatchers.IO).launch {
-            getRetrofit().create(ApiService::class.java).getSuperheroes()
+            val superheroDetail = getRetrofit().create(ApiService::class.java).getSuperheroDetail(id)
+            if (superheroDetail.body()!=null){
+                runOnUiThread { createUI(superheroDetail.body()!!) }
+                superheroDetail.body()
+            }
         }
     }
+
+    private fun createUI(superhero: SuperHeroDetailResponse) {
+
+    }
+
     private fun getRetrofit(): Retrofit {
         return Retrofit
             .Builder()
