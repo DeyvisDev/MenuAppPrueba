@@ -6,7 +6,8 @@ import java.net.URL
 data class SuperHeroDetailResponse(
     @SerializedName("name") val name:String,
     @SerializedName("powerstats") val powerstats:powerStatsResponse,
-    @SerializedName("image") val image:SuperHeroImageDetailResponse
+    @SerializedName("image") val image:SuperHeroImageDetailResponse,
+    @SerializedName("biography") val biography:Biography
 )
 data class powerStatsResponse(
     @SerializedName("intelligence") val intelligence:String,
@@ -19,3 +20,7 @@ data class powerStatsResponse(
 data class SuperHeroImageDetailResponse(
     @SerializedName("url") val url: String
 )
+data class Biography(
+    @SerializedName("full-name") val fullName:String,
+    @SerializedName("publisher") val publisher:String
+    )
