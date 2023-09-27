@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
@@ -20,6 +21,9 @@ val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name="sett
 class SettingsActivity : AppCompatActivity() {
     companion object{
         const val VOLUME_LVL = "volume_lvl"
+        const val KEY_BLOOETOTH = "key_blooetoth"
+        const val KEY_DARKMODE = "key_darkmode"
+        const val KEY_VIBRATION = "key_vibration"
     }
     private lateinit var binding:ActivitySettingsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,11 +41,33 @@ class SettingsActivity : AppCompatActivity() {
             }
 
         }
+        binding.switchBluetooth.setOnCheckedChangeListener { _, value ->
+            CoroutineScope(Dispatchers.IO).launch {
+                saveOptions(KEY_BLOOETOTH,value)
+            }
+        }
+        binding.switchDarkMode.setOnCheckedChangeListener { _, value ->
+            CoroutineScope(Dispatchers.IO).launch {
+                saveOptions(KEY_DARKMODE,value)
+            }
+        }
+        binding.switchVibration.setOnCheckedChangeListener { _, value ->
+            CoroutineScope(Dispatchers.IO).launch {
+                saveOptions(KEY_VIBRATION,value)
+            }
+        }
     }
 
     private suspend fun saveVolume(value:Int){
         dataStore.edit { preferences ->
             preferences[intPreferencesKey(VOLUME_LVL)] = value
         }
+    }
+    private suspend fun saveOptions(key:String, value:Boolean){
+        dataStore.edit { preferences ->
+            preferences[booleanPreferencesKey(key)] = value
+
+        }
+
     }
 }
