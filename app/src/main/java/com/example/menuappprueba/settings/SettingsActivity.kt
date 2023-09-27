@@ -1,9 +1,13 @@
 package com.example.menuappprueba.settings
 
+
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
@@ -67,6 +71,11 @@ class SettingsActivity : AppCompatActivity() {
             }
         }
         binding.switchDarkMode.setOnCheckedChangeListener { _, value ->
+            if (value){
+                enableDarkmode()
+            } else {
+                disableDarkmode()
+            }
             CoroutineScope(Dispatchers.IO).launch {
                 saveOptions(KEY_DARKMODE,value)
             }
@@ -97,5 +106,14 @@ class SettingsActivity : AppCompatActivity() {
                 darkMode = preferences[booleanPreferencesKey(KEY_DARKMODE)]?:true
             )
         }
+    }
+    private fun enableDarkmode(){
+        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
+        delegate.applyDayNight()
+    }
+    private fun disableDarkmode(){
+        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
+        delegate.applyDayNight()
+
     }
 }
