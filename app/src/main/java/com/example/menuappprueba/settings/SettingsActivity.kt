@@ -14,6 +14,10 @@ import com.example.menuappprueba.R
 import com.example.menuappprueba.databinding.ActivitySettingsBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name="settings")
@@ -26,10 +30,26 @@ class SettingsActivity : AppCompatActivity() {
         const val KEY_VIBRATION = "key_vibration"
     }
     private lateinit var binding:ActivitySettingsBinding
+    private var firstTime:Boolean = true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        CoroutineScope(Dispatchers.IO).launch {
+            getSettings().filter{firstTime}.collect{ settingModel ->
+                if (settingModel!=null){
+                    runOnUiThread {
+                        binding.switchVibration.isChecked = settingModel.vibration
+                        binding.switchBluetooth.isChecked = settingModel.blooetoth
+                        binding.switchDarkMode.isChecked = settingModel.darkMode
+                        binding.rsVolume.setValues(settingModel.volume.toFloat())
+                        firstTime = !firstTime
+                    }
+                }
+            }
+        }
+
         initUI()
     }
 
@@ -66,8 +86,16 @@ class SettingsActivity : AppCompatActivity() {
     private suspend fun saveOptions(key:String, value:Boolean){
         dataStore.edit { preferences ->
             preferences[booleanPreferencesKey(key)] = value
-
         }
-
+    }
+    private fun getSettings(): Flow<SettingsModel?> {
+        return dataStore.data.map { preferences->
+            SettingsModel(
+                volume = preferences[intPreferencesKey(VOLUME_LVL)]?:50,
+                blooetoth = preferences[booleanPreferencesKey(KEY_BLOOETOTH)]?:true,
+                vibration = preferences[booleanPreferencesKey(KEY_VIBRATION)]?:false,
+                darkMode = preferences[booleanPreferencesKey(KEY_DARKMODE)]?:true
+            )
+        }
     }
 }
