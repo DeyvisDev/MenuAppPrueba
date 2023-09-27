@@ -45,6 +45,5 @@ class SettingsActivity : AppCompatActivity() {
         dataStore.edit { preferences ->
             preferences[intPreferencesKey(VOLUME_LVL)] = value
         }
-
     }
 }
