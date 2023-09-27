@@ -27,8 +27,6 @@ class SettingsActivity : AppCompatActivity() {
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initUI()
-
-
     }
 
     private fun initUI() {
