@@ -116,4 +116,10 @@ class SettingsActivity : AppCompatActivity() {
         delegate.applyDayNight()
 
     }
+    private fun onBlooetoth(){
+
+    }
+    private fun offBlooetoth(){
+
+    }
 }
