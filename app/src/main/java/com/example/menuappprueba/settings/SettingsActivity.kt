@@ -120,6 +120,7 @@ class SettingsActivity : AppCompatActivity() {
 
     }
     private fun offBlooetoth(){
+        //:)
 
     }
 }
