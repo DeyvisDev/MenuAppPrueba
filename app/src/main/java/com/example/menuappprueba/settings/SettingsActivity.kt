@@ -117,6 +117,7 @@ class SettingsActivity : AppCompatActivity() {
 
     }
     private fun onBlooetoth(){
+        //;)
 
     }
     private fun offBlooetoth(){
