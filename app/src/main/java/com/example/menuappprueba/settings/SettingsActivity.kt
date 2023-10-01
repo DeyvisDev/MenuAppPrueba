@@ -66,6 +66,8 @@ class SettingsActivity : AppCompatActivity() {
 
         }
         binding.switchBluetooth.setOnCheckedChangeListener { _, value ->
+            //
+
             CoroutineScope(Dispatchers.IO).launch {
                 saveOptions(KEY_BLOOETOTH,value)
             }
