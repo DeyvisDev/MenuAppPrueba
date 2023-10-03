@@ -100,6 +100,7 @@ class SettingsActivity : AppCompatActivity() {
         val bluetoothAdapter=bluetoothManager.adapter
 
         val intent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+
         startActivityForResult(intent,1)
 
 
