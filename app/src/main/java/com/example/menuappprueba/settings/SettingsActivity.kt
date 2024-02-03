@@ -1,31 +1,23 @@
 package com.example.menuappprueba.settings
 
 
-import android.bluetooth.BluetoothAdapter
-import android.bluetooth.BluetoothManager
 import android.content.Context
-import android.content.Intent
-import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
-import androidx.core.content.ContextCompat
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.example.menuappprueba.Manifest
-import com.example.menuappprueba.R
 import com.example.menuappprueba.databinding.ActivitySettingsBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
@@ -95,21 +87,7 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
-    private fun onBlooetoth(){
-        val bluetoothManager=applicationContext.getSystemService(BLUETOOTH_SERVICE) as BluetoothManager
-        val bluetoothAdapter=bluetoothManager.adapter
 
-        val intent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
-
-        startActivityForResult(intent,1)
-
-
-
-    }
-    private fun offBlooetoth(){
-        //:)
-
-    }
 
 
     private suspend fun saveVolume(value:Int){
